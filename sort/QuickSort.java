@@ -1,5 +1,7 @@
 package sort;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 /**
  * 快速排序的实现；
  *
@@ -59,14 +61,28 @@ public class QuickSort {
         // 最后将标准值换到中间的分割部分
         numbers[beginIndex] = temp;
         numbers[leftIndex] = current;
+        print(numbers, leftIndex);
         return leftIndex;
     }
 
-    public static void main(String[] args) {
-        int[] number = new int[]{4,14,11,2,5,1,32,11,7,9,18};
-        deal(number,0,number.length-1);
-        for(int i:number) {
-            System.out.print(i+"  ");
+    public static void print(int[] array, int mid) {
+        for(int i = 0; i < array.length; i ++) {
+            if ( i == mid) {
+                System.out.print("(" + array[i] + ")  ");
+            } else {
+                System.out.print(array[i] + "    ");
+            }
         }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int[] number = new int[10];
+        for (int i = 0; i < number.length; i ++) {
+            number[i] = (int)(Math.random() * 100);
+        }
+        print(number, -1);
+        deal(number,0,number.length-1);
+        print(number, -1);
     }
 }
