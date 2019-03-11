@@ -31,28 +31,16 @@ func deal(array []int, leftIndex int, rightIndex int) int {
 			r --
 		}
 		temp = array[r]
-		for l < r && array[r] <= flag {
+		for l < r && array[l] <= flag {
 			l ++
 		}
-		// change the index
 		array[r] = array[l]
 		array[l] = temp
 	}
-	array[leftIndex] = array[l]
+	array[leftIndex] = temp
 	array[l] = flag
 	print(array, l)
 	return l
-}
-
-func print(array []int, midIndex int) {
-	for i := 0; i <len(array); i ++ {
-		if i == midIndex {
-			fmt.Printf("(%d)  ", array[i])
-		} else {
-			fmt.Printf("%d    ", array[i])
-		}
-	}
-	fmt.Println()
 }
 
 func main() {
@@ -63,6 +51,7 @@ func main() {
 	}
 	print(array, -1)
 	var wg *sync.WaitGroup
+	wg.Add(1)
 	go sort(wg, array, 0, len(array)-1)
 	wg.Wait()
 	print(array, -1)
