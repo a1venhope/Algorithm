@@ -1,22 +1,17 @@
-package main
+package sort
 
-import (
-	"fmt"
-)
+import "math/rand"
 
-func swap(array []int, index1 int, index2 int) {
+func SwapElement(array []int, index1 int, index2 int) {
 	temp := array[index1]
-	array[index1] = array[2]
+	array[index1] = array[index2]
 	array[index2] = temp
 }
 
-func print(array []int, midIndex int) {
-	for i := 0; i <len(array); i ++ {
-		if i == midIndex {
-			fmt.Printf("(%d)  ", array[i])
-		} else {
-			fmt.Printf("%d    ", array[i])
-		}
+func GenerateRandomArray(size int, maxNum int) []int {
+	array := make([]int, 0, size)
+	for i := 0; i < size; i++ {
+		array = append(array, rand.Intn(maxNum))
 	}
-	fmt.Println()
+	return array
 }
