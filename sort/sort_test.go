@@ -29,3 +29,11 @@ func TestMergeSort(t *testing.T) {
 	array = MergeSort(array)
 	t.Logf("Sorted Array: %v", array)
 }
+
+func TestQuickSort(t *testing.T) {
+	array := GenerateRandomArray(15, 30)
+	t.Logf("Original Array: %v", array)
+	QuickSort(array)
+	t.Logf("Sorted Array: %v", array)
+}
+
